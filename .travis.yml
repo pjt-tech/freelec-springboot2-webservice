@@ -17,6 +17,11 @@ script: "./gradlew clean build"
 before_install:
   - chmod +x gradlew
 
+before_deploy:
+  - zip -r freelec-springboot2-webservice *
+  - mkdir -p deploy
+  - mv freelec-springboot2-webservice.zip deploy/freelec-springboot2-webservice.zip
+
 deploy:
     # S3로 파일업로드
     - provider: s3
@@ -32,11 +37,6 @@ deploy:
         all_branches: true # master말고 다른 모든 브런치 허용
         repo: pjt-tech/freelec-springboot2-webservice #Github 주소
         branch: main
-
-before_deploy:
-  - zip -r spring_deploy_test *
-  - mkdir -p deploy
-  - mv spring_deploy_test.zip deploy/spring_deploy_test.zip
 
 #CI 실행 완료 시 메일로 알람
 notifications:
