@@ -5,6 +5,7 @@ ABSDIR=$(dirname $ABSPATH)
 source ${ABSDIR}/profile.sh   # import profile.sh
 
 REPOSITORY=/home/ec2-user/app/step3
+# shellcheck disable=SC2034
 PROJECT_NAME=freelec-springboot2-webservice
 
 echo "> Build 파일 복사"
