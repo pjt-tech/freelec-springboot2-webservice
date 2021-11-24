@@ -27,6 +27,7 @@ deploy:
     - provider: s3
       access_key_id: $AWS_ACCESS_KEY # Travis repo settings에 설정된 값
       secret_access_key: $AWS_SECRET_KEY # Travis repos settings에 설정된 값
+
       bucket: springboot-webservice-deploy-pjt
       region: ap-northeast-2
       skip_cleanup: true
@@ -34,16 +35,16 @@ deploy:
       local_dir: deploy # before_deploy에서 생성한 디렉토리
       wait-until-deployed: true
 
-      - provider: codedeploy
-          access_key_id: $AWS_ACCESS_KEY # Travis repo settings에 설정된 값
-          secret_access_key: $AWS_SECRET_KEY # Travis repos settings에 설정된 값
-          bucket: springboot-webservice-deploy-pjt
-          key: freelec-springboot2-webservice.zip
-          bundle_type: zip
-          application: freelec-springboot2-webservice
-          deployment_group: freelec-springboot2-webservice-group
-          region: ap-northeast-2
-          wait-until-deployed: true
+    - provider: codedeploy
+        access_key_id: $AWS_ACCESS_KEY # Travis repo settings에 설정된 값
+        secret_access_key: $AWS_SECRET_KEY # Travis repos settings에 설정된 값
+        bucket: springboot-webservice-deploy-pjt
+        key: freelec-springboot2-webservice.zip
+        bundle_type: zip
+        application: freelec-springboot2-webservice
+        deployment_group: freelec-springboot2-webservice-group
+        region: ap-northeast-2
+        wait-until-deployed: true
 
 
 
