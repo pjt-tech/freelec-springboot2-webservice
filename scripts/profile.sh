@@ -2,16 +2,16 @@
 
 function find_idle_profile()
 {
-    RESPONSE_CODE=$(sudo curl -s -o /dev/null -w "%{http_code}" http://http://ec2-54-180-216-129.ap-northeast-2.compute.amazonaws.com//profile)
+    RESPONSE_CODE=$(sudo curl -s -o /dev/null -w "%{http_code}" http://ec2-54-180-216-129.ap-northeast-2.compute.amazonaws.com/profile)
 
     if [ ${RESPONSE_CODE} -ge 400 ] # 400 보다 크면 (즉, 40x/50x 에러 모두 포함)
     then
         CURRENT_PROFILE=real2
     else
-        CURRENT_PROFILE=$(sudo curl -s http://http://ec2-54-180-216-129.ap-northeast-2.compute.amazonaws.com//profile)
+        CURRENT_PROFILE=$(sudo curl -s http://ec2-54-180-216-129.ap-northeast-2.compute.amazonaws.com/profile)
     fi
 
-    if [ ${CURRENT_PROFILE} == real1 ]
+    if [ ${CURRENT_PROFILE} == real1 ] #수정
     then
       IDLE_PROFILE=real2
     else
