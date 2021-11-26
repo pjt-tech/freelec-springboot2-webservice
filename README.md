@@ -3,7 +3,7 @@
 
 [![Build Status](https://app.travis-ci.com/pjt-tech/freelec-springboot2-webservice.svg?branch=master)](https://app.travis-ci.com/pjt-tech/freelec-springboot2-webservice)
 #### 1.인텔리제이설치부터 스프링부트 셋팅 
-#### 2.TDD 작성법 
+#### 2.단위테스트 작성법 
 #### 3.JPA로 데이터베이스 적용
 #### 4.머스테치로 화면구성
 #### 5.스프링 시큐리티 OAuth 2.0 로그인 기능 구현
