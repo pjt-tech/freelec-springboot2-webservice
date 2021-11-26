@@ -18,7 +18,7 @@
 이번 기회에 경험해 볼 수 있어서 좋았고 진행하는동안 쉬운 설명과 간단한 예시로 따라하는데에는 전혀 문제가 되진않았다.
 다만 시간이 지날수록 버전업으로 인해 문제가 되는 요인들이 있어 직접 찾아보고 수정하는데 시간을 소요했다.(책을 따라하다 버전이 너무 낮아 중간에 버전을 올려서 애좀 먹었다..버전은 부트와 그래들이다.)
 특히 스프링 시큐리티에서 똑같이 구현을 했지만 js페이지로 리다이렉트되는점..resources를 제외로 설정했지만 아래의 설정으로 해결했다. 
--web.ignoring().requestMatchers(PathRequest.toStaticResources().atCommonLocations()) 
+- web.ignoring().requestMatchers(PathRequest.toStaticResources().atCommonLocations()) 
 그 다음은 CI/CD 환경 구성과 무중단 배포환경을 구성하던 중 쉘스크립트 작업에서 애를 먹었던거같다. 오타와 띄어쓰기 에러로그확인 하는데 힘들었다. 처음 경험해보는 환경이라 더 그런거같다.
 앞으로는 이것이 익숙해질때까지 반복숙지할 예정이다. 더 자세한 내용은 개인 노션에 정리할 예정.
 
