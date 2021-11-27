@@ -10,6 +10,7 @@ import java.util.List;
 
 @RequiredArgsConstructor
 @Configuration
+//HandlerMethodArgumentResolver 는 항상 WebMvcConfigurer 를 통해서 추가해야한다.
 public class WebConfig implements WebMvcConfigurer {
 
     private final LoginUserArgumentResolver loginUserArgumentResolver;

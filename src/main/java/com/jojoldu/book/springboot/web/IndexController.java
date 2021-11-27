@@ -24,7 +24,7 @@ public class IndexController {
         if(user != null) {
             model.addAttribute("loginUser", user.getName());
         }
-        return "index";
+        return "index"; //머스테치 스타터로 index.mustache 를 반환 뷰리졸버에서 처리
     }
 
     @GetMapping("/posts/save")
