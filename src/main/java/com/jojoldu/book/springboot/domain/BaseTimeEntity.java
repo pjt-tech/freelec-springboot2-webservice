@@ -10,8 +10,8 @@ import javax.persistence.MappedSuperclass;
 import java.time.LocalDateTime;
 
 @Getter
-@MappedSuperclass
-@EntityListeners(AuditingEntityListener.class)
+@MappedSuperclass //CreatedDate, modifiedDate 도 컬럼으로 인식
+@EntityListeners(AuditingEntityListener.class) //모든엔티티의 상위 클래스가 되어 생성시간과 수정시간을 관리해주게 된다.
 public abstract class BaseTimeEntity {
 
     @CreatedDate

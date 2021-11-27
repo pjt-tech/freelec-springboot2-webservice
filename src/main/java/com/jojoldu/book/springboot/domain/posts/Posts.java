@@ -9,14 +9,14 @@ import javax.persistence.*;
 
 @Getter
 @NoArgsConstructor
-@Entity
+@Entity //테이블과 링크될 클래스
 public class Posts extends BaseTimeEntity {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @Id // PK 필드
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // auto_increment
+    private Long id; //PK 는 Long 타입을 추천
 
-    @Column(length = 500, nullable = false)
+    @Column(length = 500, nullable = false) //테이블의 컬럼 () 안에는 컬럼 설정값 변경사항
     private String title;
 
     @Column(columnDefinition = "TEXT", nullable = false)

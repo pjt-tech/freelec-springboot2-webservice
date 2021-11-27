@@ -17,21 +17,21 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 @WebAppConfiguration
-@ExtendWith(SpringExtension.class)
+@ExtendWith(SpringExtension.class) //스프링 부트와 Junit 사이에 연결자 역할
 @WebMvcTest(controllers = HelloController.class, excludeFilters = {@ComponentScan.Filter(type = FilterType.ASSIGNABLE_TYPE,
-        classes = SecurityConfig.class)})
+        classes = SecurityConfig.class)}) //웹에 집중할수있는 어노테이션
 public class HelloControllerTest {
-    @Autowired
-    private MockMvc mvc;
+    @Autowired //스프링이 관리하는 빈을 주입받는다.
+    private MockMvc mvc; //스프링 MVC시작점
 
     @WithMockUser(roles = "USER")
     @Test
     public void hello가_리턴된다() throws Exception {
         String hello = "hello";
 
-        mvc.perform(get("/hello"))
-                .andExpect(status().isOk())
-                .andExpect(content().string(hello));
+        mvc.perform(get("/hello")) //MockMvc 를 통해 get요청을 하고 응답을 받는다.
+                .andExpect(status().isOk())     //검증부
+                .andExpect(content().string(hello)); //검증부
     }
 
     @WithMockUser(roles = "USER")
@@ -41,10 +41,10 @@ public class HelloControllerTest {
         int amount = 1000;
 
         mvc.perform(get("/hello/dto")
-                    .param("name", name)
+                    .param("name", name) //API테스트시 파라미터 값, String만 지원
                     .param("amount", String.valueOf(amount)))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.name",is(name)))
-                .andExpect(jsonPath("$.amount",is(amount)));
+                .andExpect(jsonPath("$.amount",is(amount))); //응답값을 필드별로 검증 기준은 $
     }
 }
